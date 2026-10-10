@@ -41,7 +41,7 @@ issue refunds. It runs on an open-weight 7B model (`qwen2.5:7b-instruct`, 4-bit,
 customer questions with known answers, 5 sampled replies each (temperature 0.7), 5 control configurations,
 1,500 attack trials and 425 benign trials in total. Grading: deterministic checks on the reply text and the
 executed-action log for 48 scenarios; an LLM judge for the 12 meaning-level scenarios. Graders were checked
-against 94 hand-labeled transcripts: deterministic graders agreed on 58/58; the LLM judge agreed 86% of the
+against 94 reference-labeled transcripts (AI-assisted labels, pending human re-label): deterministic graders agreed on 58/58; the LLM judge agreed 86% of the
 time (Cohen's kappa 0.63) and over-flags rather than under-flags (10 false alarms, 3 misses), so the
 misinformation numbers are more likely overstated than understated.
 
