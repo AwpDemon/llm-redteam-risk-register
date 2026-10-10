@@ -1,4 +1,4 @@
-| Grader vs. hand label | n | Accuracy | Precision | Recall | Cohen's kappa |
+| Grader vs. reference label | n | Accuracy | Precision | Recall | Cohen's kappa |
 |---|---|---|---|---|---|
 | Deterministic graders (where defined) | 58 | 1.00 | 1.00 | 1.00 | 1.00 |
 | LLM judge, all labeled transcripts | 94 | 0.86 | 0.63 | 0.85 | 0.63 |

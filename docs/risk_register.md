@@ -162,7 +162,7 @@ Transcripts and evaluation logs contain personal data typed by customers and ret
 The LLM judge is the same small model as the target and may be lenient; deterministic graders only see the patterns they were written for. Reported attack-success rates could understate true risk.
 
 - **Owner:** Model Risk Management (independent validation)
-- **Evidence:** Not measured. Mitigated by deterministic-first grading and a hand-labeled calibration set (see calibration results).
+- **Evidence:** Not measured. Mitigated by deterministic-first grading and a reference-labeled calibration set (AI-assisted labels, pending human re-label) (see calibration results).
 - **Impact rationale:** Mis-stated residual risk leads to wrong launch decisions.
 - **Controls:** C07 CI regression gate on attack success rate (red-team suite as a test) (implemented)
 - **Inherent:** L3 x I3 = 9 (Medium); **Residual:** L2 x I3 = 6 (Medium) -> Accept with monitoring; owner action dated
