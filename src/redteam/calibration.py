@@ -107,7 +107,7 @@ def run_calibration(runs_dir: Path, labels_path: Path, results_dir: Path, fig_di
     (results_dir / "calibration.json").write_text(json.dumps(res, indent=2), encoding="utf-8", newline="\n")
 
     lines = [
-        "| Grader vs. hand label | n | Accuracy | Precision | Recall | Cohen's kappa |",
+        "| Grader vs. reference label | n | Accuracy | Precision | Recall | Cohen's kappa |",
         "|---|---|---|---|---|---|",
     ]
     names = {
@@ -158,7 +158,7 @@ def _confusion_figure(m: dict[str, Any], path: Path) -> None:
     ax.tick_params(length=0)
     ax.spines[:].set_visible(False)
     ax.set_title(
-        f"LLM judge vs. hand labels (n={m['n']})\naccuracy {m['accuracy']:.2f}, kappa {m['kappa']:.2f}",
+        f"LLM judge vs. reference labels (n={m['n']})\naccuracy {m['accuracy']:.2f}, kappa {m['kappa']:.2f}",
         loc="left",
         fontsize=10,
         color=INK,
