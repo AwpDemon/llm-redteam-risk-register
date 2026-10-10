@@ -1,0 +1,18 @@
+# Local, offline stack: Ollama + the harness. Usage:
+#   docker compose -f deploy/docker-compose.yml up -d ollama
+#   docker compose -f deploy/docker-compose.yml exec ollama ollama pull qwen2.5:7b-instruct
+#   docker compose -f deploy/docker-compose.yml run --rm harness run --defense baseline
+services:
+  ollama:
+    image: ollama/ollama:latest
+    volumes: [ollama:/root/.ollama]
+    # no published ports: only the harness container can reach the model
+  harness:
+    build: {context: .., dockerfile: deploy/Dockerfile}
+    depends_on: [ollama]
+    environment:
+      REDTEAM_BASE_URL: http://ollama:11434/v1
+      REDTEAM_MODEL: qwen2.5:7b-instruct
+    volumes: [../results:/app/results]
+volumes:
+  ollama: {}
